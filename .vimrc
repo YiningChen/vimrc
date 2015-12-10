@@ -1,0 +1,74 @@
+set nocompatible
+
+"Key Mappings
+let g:ctrlp_map = '<c-p>'
+
+"Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'               "PluginInstall
+
+"Plugins
+Plugin 'ervandew/supertab'               "tab autocomplete!
+Plugin 'tpope/vim-surround'              "surround things!
+Plugin 'tpope/vim-repeat'                "so . will work w plugins!
+Plugin 'tpope/vim-unimpaired'            "key bindings I'll learn one day
+Plugin 'scrooloose/syntastic'            "linters
+Plugin 'ctrlpvim/ctrlp.vim'              "fuzzy file finder
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Chiel92/vim-autoformat'          "Autoformat
+Plugin 'editorconfig/editorconfig-vim'   "editor config
+Plugin 'dbarsam/vim-rainbow-parentheses' "color matching parentheses!
+
+"Language Specific
+Plugin 'mattn/emmet-vim'                 "awesome html stuff
+Plugin 'heavenshell/vim-jsdoc'
+Plugin 'jimmyhchan/dustjs.vim'
+call vundle#end()
+
+"Syntastic Settings
+let g:syntastic_python_checkers = ['python']
+let g:syntastic_javascript_checkers = ['jscs', 'jshint']
+let g:syntastic_aggregate_errors = 1
+
+filetype plugin indent on
+syntax on         "syntax highlighting
+
+set autoindent    "copies indentation from previous line
+set tabstop=2     "global tab width
+set shiftwidth=2
+set softtabstop=2
+
+set backspace=indent,eol,start
+
+set laststatus=2 "always show the status line
+set lazyredraw   "do not redraw while running macros
+set linespace=0  "don't insert any extra pixel lines betweens rows
+set matchtime=5   "how many tenths of a second to blink matching brackets for
+set numberwidth=5 "We are good up to 99999 lines
+set report=0      "tell us when anything is changed via :...
+set ruler         "Always show current positions along the bottom
+set number        "Display line numbers
+set scrolloff=10  "Keep 10 lines (top/bottom) for scope
+set showcmd       "show the command being typed
+set showmatch     "show matching brackets
+set sidescrolloff=10 "Keep 5 lines at the size
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+
+set t_Co=256
+colo codeschool
+
+"----Graveyard----
+"map <C-t>n :tabnew<CR>
+"map <C-t>t :tabnext<CR>
+"set incsearch "move while searching
+"set cindent       "replaces smartindent
+"set expandtab "indentation without tabs
+"set list         "show tabs and stuff
+"set listchars=trail:. "show trailing
+"set novisualbell  "don't blink
+"individual format settings
+"au BufNewFile,BufRead *.txt set nu!
+"au BufNewFile,BufRead *.rtf set nu!
+"vim git-gutter
+"execute pathogen#infect()
