@@ -2,6 +2,7 @@ set nocompatible
 
 "Key Mappings
 let g:ctrlp_map = '<c-p>'
+map <C-n> :NERDTreeToggle<CR>
 
 "Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -13,7 +14,9 @@ Plugin 'ervandew/supertab'               "tab autocomplete!
 Plugin 'tpope/vim-surround'              "surround things!
 Plugin 'tpope/vim-repeat'                "so . will work w plugins!
 Plugin 'tpope/vim-unimpaired'            "key bindings I'll learn one day
-Plugin 'scrooloose/syntastic'            "linters
+Plugin 'scrooloose/syntastic'            "linters: SyntasticInfo, SyntasticCheck
+Plugin 'scrooloose/nerdtree'             "file navigation
+Plugin 'Xuyuanp/nerdtree-git-plugin'     "git status flags
 Plugin 'ctrlpvim/ctrlp.vim'              "fuzzy file finder
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Chiel92/vim-autoformat'          "Autoformat
@@ -22,8 +25,10 @@ Plugin 'dbarsam/vim-rainbow-parentheses' "color matching parentheses!
 
 "Language Specific
 Plugin 'mattn/emmet-vim'                 "awesome html stuff
+Plugin 'elzr/vim-json'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'jimmyhchan/dustjs.vim'
+Plugin 'wavded/vim-stylus'
 call vundle#end()
 
 "Syntastic Settings
