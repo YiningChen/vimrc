@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<root>
+
+  <!-- ============================================================ -->
+  <!-- Ctrl hjkl for arrow keys -->
+  <!-- ============================================================ -->
+  <item>
+		<name> Ctrl + hjkl = arrow keys </name>
+		<identifier>private.ctrl_hjkl</identifier>
+    <autogen>__KeyToKey__ KeyCode::H, VK_CONTROL, KeyCode::CURSOR_LEFT</autogen>
+    <autogen>__KeyToKey__ KeyCode::K, VK_CONTROL, KeyCode::CURSOR_UP</autogen>
+    <autogen>__KeyToKey__ KeyCode::J, VK_CONTROL, KeyCode::CURSOR_DOWN</autogen>
+    <autogen>__KeyToKey__ KeyCode::L, VK_CONTROL, KeyCode::CURSOR_RIGHT</autogen>
+  </item>
+
+</root>
