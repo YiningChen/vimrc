@@ -1,3 +1,6 @@
+# make macVim replace vim
+alias vim='mvim -v'
+
 # make vim default for terminal
 set -o vi
 
