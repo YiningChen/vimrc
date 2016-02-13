@@ -56,6 +56,9 @@ Plugin 'Chiel92/vim-autoformat'          "Autoformat
 Plugin 'editorconfig/editorconfig-vim'   "editor config
 Plugin 'dbarsam/vim-rainbow-parentheses' "color matching parentheses!
 
+"MacVim Dependent Plugins
+Plugin 'Valloric/YouCompleteMe'
+
 "Language Specific
 Plugin 'mattn/emmet-vim'                 "awesome html stuff
 Plugin 'elzr/vim-json'
