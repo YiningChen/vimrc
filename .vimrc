@@ -2,6 +2,39 @@
 let g:ctrlp_map = '<c-p>'
 map <C-n> :NERDTreeToggle<CR>
 
+"Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'               "PluginInstall
+
+"Plugins
+Plugin 'ervandew/supertab'               "tab autocomplete!
+Plugin 'tpope/vim-surround'              "surround things!
+Plugin 'tpope/vim-repeat'                "so . will work w plugins!
+Plugin 'tpope/vim-unimpaired'            "key bindings I'll learn one day
+Plugin 'scrooloose/syntastic'            "linters: SyntasticInfo, SyntasticCheck
+Plugin 'scrooloose/nerdtree'             "file navigation
+Plugin 'Xuyuanp/nerdtree-git-plugin'     "git status flags
+Plugin 'ctrlpvim/ctrlp.vim'              "fuzzy file finder
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Chiel92/vim-autoformat'          "Autoformat
+Plugin 'editorconfig/editorconfig-vim'   "editor config
+Plugin 'dbarsam/vim-rainbow-parentheses' "color matching parentheses!
+
+"Language Specific
+Plugin 'mattn/emmet-vim'                 "awesome html stuff
+Plugin 'elzr/vim-json'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin 'mirlord/vim-dust'
+Plugin 'wavded/vim-stylus'
+Plugin 'jelera/vim-javascript-syntax'
+call vundle#end()
+
+"Syntastic Settings
+let g:syntastic_python_checkers = ['python']
+let g:syntastic_javascript_checkers = ['jscs', 'jshint']
+let g:syntastic_aggregate_errors = 1
+
 "Setting Stuff
 set nocompatible
 filetype plugin indent on
@@ -29,45 +62,13 @@ set lazyredraw   "do not redraw while running macros
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
 set t_Co=256
-colo codeschool
+colorscheme jellybeans
 
 " extra files that are created go in these folders. the folders have to
 " be created before this will work!
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
-
-"Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'               "PluginInstall
-
-"Plugins
-Plugin 'ervandew/supertab'               "tab autocomplete!
-Plugin 'tpope/vim-surround'              "surround things!
-Plugin 'tpope/vim-repeat'                "so . will work w plugins!
-Plugin 'tpope/vim-unimpaired'            "key bindings I'll learn one day
-Plugin 'scrooloose/syntastic'            "linters: SyntasticInfo, SyntasticCheck
-Plugin 'scrooloose/nerdtree'             "file navigation
-Plugin 'Xuyuanp/nerdtree-git-plugin'     "git status flags
-Plugin 'ctrlpvim/ctrlp.vim'              "fuzzy file finder
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'Chiel92/vim-autoformat'          "Autoformat
-Plugin 'editorconfig/editorconfig-vim'   "editor config
-Plugin 'dbarsam/vim-rainbow-parentheses' "color matching parentheses!
-
-"Language Specific
-Plugin 'mattn/emmet-vim'                 "awesome html stuff
-Plugin 'elzr/vim-json'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'jimmyhchan/dustjs.vim'
-Plugin 'wavded/vim-stylus'
-call vundle#end()
-
-"Syntastic Settings
-let g:syntastic_python_checkers = ['python']
-let g:syntastic_javascript_checkers = ['jscs', 'jshint']
-let g:syntastic_aggregate_errors = 1
 
 "----Graveyard----
 "map <C-t>n :tabnew<CR>
