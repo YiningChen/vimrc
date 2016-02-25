@@ -28,6 +28,10 @@ Plugin 'heavenshell/vim-jsdoc'
 Plugin 'mirlord/vim-dust'
 Plugin 'wavded/vim-stylus'
 Plugin 'jelera/vim-javascript-syntax'
+
+"MacVim Dependent Plugins
+Plugin 'Valloric/YouCompleteMe'
+
 call vundle#end()
 
 "Syntastic Settings
