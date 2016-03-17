@@ -44,7 +44,7 @@ set nocompatible
 filetype plugin indent on
 syntax on         "syntax highlighting
 
-set autoindent    "copies indentation from previous line
+"set autoindent    "copies indentation from previous line
 set tabstop=2     "global tab width
 set shiftwidth=2
 set softtabstop=2
