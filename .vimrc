@@ -39,6 +39,9 @@ let g:syntastic_python_checkers = ['python']
 let g:syntastic_javascript_checkers = ['jscs', 'jshint']
 let g:syntastic_aggregate_errors = 1
 
+"Disable json hide quotations
+set conceallevel=0
+
 "Setting Stuff
 set nocompatible
 filetype plugin indent on
