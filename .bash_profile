@@ -17,7 +17,8 @@ forDirectoryWithName() {
 
 alias startredis='redis-server /usr/local/etc/redis.conf'
 
-# call submodules_deleteAndCheckoutDevelop afterward otherwise your develop branches will throw upstream error
+# call submodules_deleteAndCheckoutDevelop afterward 
+# otherwise when pulling from develop, branches might throw upstream error
 alias submodules_mergeAndRecut="git submodule foreach '\
 git checkout release && \
 git pull && \
