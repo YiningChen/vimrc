@@ -19,7 +19,7 @@ alias startredis='redis-server /usr/local/etc/redis.conf'
 
 # call submodules_deleteAndCheckoutDevelop afterward 
 # otherwise when pulling from develop, branches might throw upstream error
-alias submodules_mergeAndRecut="git submodule foreach '\
+alias submodules_mergeAndRecut="git submodule update --init --recursive && git submodule foreach '\
 git checkout release && \
 git pull && \
 git checkout master && \
