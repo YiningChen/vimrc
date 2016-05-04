@@ -5,6 +5,47 @@ set -o vi
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
-alias mergeReleaseMaster='git checkout release; git pull; git checkout master; git pull; git merge release --no-ff -m "merge release to master"; git push origin HEAD;'
-alias recutDevelop='git checkout master; git pull; git push origin :develop; git branch -D develop; git checkout master -b develop; git push origin develop;'
+forDirectoryWithName() {
+	for file in *$1*
+	do 
+		echo $file;
+		cd $file;
+		$2;
+		cd ..;
+	done
+}
 
+alias startredis='redis-server /usr/local/etc/redis.conf'
+
+# call submodules_deleteAndCheckoutDevelop afterward otherwise your develop branches will throw upstream error
+alias submodules_mergeAndRecut="git submodule foreach '\
+git checkout release && \
+git pull && \
+git checkout master && \
+git pull && \
+git merge release --no-ff -m \"merge release to master\" && \
+git push origin HEAD && \
+git push origin :develop && \
+git branch -D develop && \
+git checkout master -b develop && \
+git push origin develop'"
+
+alias submodules_deleteAndCheckoutDevelop="git submodule foreach '\
+git checkout master && \
+git pull && \
+git branch -D develop && \
+git checkout develop'"
+
+alias submodules_recut="git submodule foreach '\
+git checkout master && \
+git pull --all && \
+git push origin :develop && \
+git branch -D develop && \
+git checkout master -b develop && \
+git push origin develop'"
+
+alias recutDevelop='git checkout master && git pull && git push origin :develop && git branch -D develop && git checkout master -b develop && git push origin develop;'
+
+# unmaintained aliases
+alias mergeReleaseMaster='git pull --all; git checkout master; git merge release --no-ff -m "merge release to master"; git push origin HEAD;'
+alias sbdevelop="git submodule foreach 'git checkout develop && git pull'"
