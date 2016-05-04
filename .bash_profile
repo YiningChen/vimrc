@@ -27,7 +27,7 @@ git pull && \
 git merge release --no-ff -m \"merge release to master\" && \
 git push origin HEAD && \
 git push origin :develop && \
-git branch -D develop && \
+git branch -D develop; \
 git checkout master -b develop && \
 git push origin develop'"
 
@@ -41,7 +41,7 @@ alias submodules_recut="git submodule foreach '\
 git checkout master && \
 git pull --all && \
 git push origin :develop && \
-git branch -D develop && \
+git branch -D develop; \
 git checkout master -b develop && \
 git push origin develop'"
 
