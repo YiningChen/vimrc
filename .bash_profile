@@ -15,7 +15,13 @@ forDirectoryWithName() {
 	done
 }
 
+git_delete() {
+	git branch -D $1;
+	git push origin :$1;
+}
+
 alias startredis='redis-server /usr/local/etc/redis.conf'
+alias git_setUpstream='git branch --set-upstream-to=origin/$(git rev-parse --abbrev-ref HEAD) $(git rev-parse --abbrev-ref HEAD)'
 
 # call submodules_deleteAndCheckoutDevelop afterward 
 # otherwise when pulling from develop, branches might throw upstream error
@@ -34,7 +40,7 @@ git push origin develop'"
 alias submodules_deleteAndCheckoutDevelop="git submodule foreach '\
 git checkout master && \
 git pull && \
-git branch -D develop && \
+git branch -D develop; \
 git checkout develop'"
 
 alias submodules_recut="git submodule foreach '\
