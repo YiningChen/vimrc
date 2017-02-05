@@ -1,3 +1,6 @@
+"Fish shell doesn't work with syntastic
+"set shell=bash
+
 "Key Mappings
 let g:ctrlp_map = '<c-p>'
 map <C-n> :NERDTreeToggle<CR>
@@ -6,45 +9,58 @@ map <C-o> :QFix<CR>
 "Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'               "PluginInstall
 
 "Plugins
+Plugin 'gmarik/Vundle.vim'               "PluginInstall
 Plugin 'ervandew/supertab'               "tab autocomplete!
 Plugin 'tpope/vim-surround'              "surround things!
 Plugin 'tpope/vim-repeat'                "so . will work w plugins!
 Plugin 'tpope/vim-unimpaired'            "key bindings I'll learn one day
-Plugin 'scrooloose/syntastic'            "linters: SyntasticInfo, SyntasticCheck
 Plugin 'scrooloose/nerdtree'             "file navigation
 Plugin 'Xuyuanp/nerdtree-git-plugin'     "git status flags
 Plugin 'ctrlpvim/ctrlp.vim'              "fuzzy file finder
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'Chiel92/vim-autoformat'          "Autoformat
+Plugin 'chriskempson/base16-vim'         "base16 colorschemes
+Plugin 'MartinLafreniere/vim-PairTools'
 Plugin 'editorconfig/editorconfig-vim'   "editor config
-Plugin 'dbarsam/vim-rainbow-parentheses' "color matching parentheses!
+Plugin 'tpope/vim-sensible'              "use whatever tab style is in the file :)
+"Plugin 'scrooloose/syntastic'            "linters: SyntasticInfo, SyntasticCheck
+"Plugin 'jiangmiao/auto-pairs'
+"Plugin 'Chiel92/vim-autoformat'          "Autoformat
+"Plugin 'dbarsam/vim-rainbow-parentheses' "color matching parentheses!
 
 "Language Specific
-Plugin 'mattn/emmet-vim'                 "awesome html stuff
 Plugin 'elzr/vim-json'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'mirlord/vim-dust'
 Plugin 'wavded/vim-stylus'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+"Plugin 'mattn/emmet-vim'                 "awesome html stuff
 call vundle#end()
 
-"Syntastic Settings
-let g:syntastic_python_checkers = ['python']
-let g:syntastic_javascript_checkers = ['jscs', 'jshint']
-let g:syntastic_aggregate_errors = 1
+" Syntastic Settings
+"let g:syntastic_python_checkers = ['flake8']
+"let g:syntastic_javascript_checkers = ['jscs', 'jshint']
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_aggregate_errors = 1
 
-"Setting Stuff
+" Use JSX highlighting in .js files
+" mxw/vim-jsx
+let g:jsx_ext_required=0
+
+" Setting Stuff
 set nocompatible
 filetype plugin indent on
 syntax on         "syntax highlighting
 
-"set autoindent    "copies indentation from previous line
+" Indentation
+set autoindent    "copies indentation from previous line
 set tabstop=2     "global tab width
 set shiftwidth=2
 set softtabstop=2
+
+"use spaces in python files
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
 set backspace=indent,eol,start
 set showmatch     "show matching brackets
@@ -62,11 +78,13 @@ set laststatus=2 "always show the status line
 set lazyredraw   "do not redraw while running macros
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
-set t_Co=256
-colorscheme jellybeans
+" Access colors present in 256 colorspace
+" base16-vim colorschemes
+let base16colorspace=256
+colorscheme base16-tomorrow-night 
 
-" extra files that are created go in these folders. the folders have to
-" be created before this will work!
+" extra files that are created go in these folders.
+" the folders have to be created before this will work!
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
