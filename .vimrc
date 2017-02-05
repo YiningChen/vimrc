@@ -80,6 +80,9 @@ set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
 " Access colors present in 256 colorspace
 " base16-vim colorschemes
+" Clone this too into ~/.config/
+" git@github.com:chriskempson/base16-shell.git
+" https://github.com/coderonline/base16-shell/blob/2efe3d201c79f0055d4c47dcf00ccbf2cc094ad8/profile_helper.fish
 let base16colorspace=256
 colorscheme base16-tomorrow-night 
 
