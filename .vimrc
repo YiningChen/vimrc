@@ -1,5 +1,5 @@
 "Fish shell doesn't work with syntastic
-"set shell=bash
+set shell=bash
 
 "Key Mappings
 let g:ctrlp_map = '<c-p>'
@@ -23,7 +23,8 @@ Plugin 'chriskempson/base16-vim'         "base16 colorschemes
 Plugin 'MartinLafreniere/vim-PairTools'
 Plugin 'editorconfig/editorconfig-vim'   "editor config
 Plugin 'tpope/vim-sensible'              "use whatever tab style is in the file :)
-"Plugin 'scrooloose/syntastic'            "linters: SyntasticInfo, SyntasticCheck
+Plugin 'scrooloose/syntastic'            "linters: SyntasticInfo, SyntasticCheck
+Plugin 'leafgarland/typescript-vim'
 "Plugin 'jiangmiao/auto-pairs'
 "Plugin 'Chiel92/vim-autoformat'          "Autoformat
 "Plugin 'dbarsam/vim-rainbow-parentheses' "color matching parentheses!
@@ -39,14 +40,16 @@ Plugin 'mxw/vim-jsx'
 call vundle#end()
 
 " Syntastic Settings
-"let g:syntastic_python_checkers = ['flake8']
-"let g:syntastic_javascript_checkers = ['jscs', 'jshint']
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_javascript_checkers = ['jscs', 'jshint']
 "let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_aggregate_errors = 1
 
-" Use JSX highlighting in .js files
 " mxw/vim-jsx
-let g:jsx_ext_required=0
+let g:jsx_ext_required=0 "JSX highlighting in .js files
+
+" pangloss/vim-javascript
+let g:javascript_plugin_jsdoc = 1 "JSDoc syntax highlighting
 
 " Setting Stuff
 set nocompatible
@@ -55,11 +58,11 @@ syntax on         "syntax highlighting
 
 " Indentation
 set autoindent    "copies indentation from previous line
-set tabstop=2     "global tab width
+set tabstop=2     "how many spaces a tab will look
 set shiftwidth=2
 set softtabstop=2
 
-"use spaces in python files
+" Use spaces in python files
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
 set backspace=indent,eol,start
@@ -87,7 +90,7 @@ let base16colorspace=256
 colorscheme base16-tomorrow-night 
 
 " extra files that are created go in these folders.
-" the folders have to be created before this will work!
+" these folders have to be created before this will work!
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
