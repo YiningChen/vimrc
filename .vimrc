@@ -24,6 +24,7 @@ Plugin 'MartinLafreniere/vim-PairTools'
 Plugin 'editorconfig/editorconfig-vim'   "editor config
 Plugin 'tpope/vim-sensible'              "use whatever tab style is in the file :)
 Plugin 'scrooloose/syntastic'            "linters: SyntasticInfo, SyntasticCheck
+Plugin 'rizzatti/dash.vim'
 "Plugin 'jiangmiao/auto-pairs'
 "Plugin 'Chiel92/vim-autoformat'          "Autoformat
 "Plugin 'dbarsam/vim-rainbow-parentheses' "color matching parentheses!
