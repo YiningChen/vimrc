@@ -36,6 +36,7 @@ Plugin 'mirlord/vim-dust'
 Plugin 'wavded/vim-stylus'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'Vimjas/vim-python-pep8-indent'
 "Plugin 'mattn/emmet-vim'                 "awesome html stuff
 call vundle#end()
 
@@ -51,6 +52,9 @@ let g:jsx_ext_required=0 "JSX highlighting in .js files
 " pangloss/vim-javascript
 let g:javascript_plugin_jsdoc = 1 "JSDoc syntax highlighting
 
+" heavenshell/vim-jsdoc
+let g:jsdoc_allow_input_prompt = 1 
+
 " Setting Stuff
 set nocompatible
 filetype plugin indent on
@@ -61,9 +65,6 @@ set autoindent    "copies indentation from previous line
 set tabstop=2     "how many spaces a tab will look
 set shiftwidth=2
 set softtabstop=2
-
-" Use spaces in python files
-autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
 set backspace=indent,eol,start
 set showmatch     "show matching brackets
@@ -153,3 +154,5 @@ endfunction
 "vim git-gutter
 "execute pathogen#infect()
 "set matchtime=5   "how many tenths of a second to blink matching brackets for
+"autocmd Filetype python setlocal expandtab tabstop=2 shiftwidth=2 " Use spaces in python files
+
