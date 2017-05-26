@@ -16,6 +16,8 @@ Plugin 'ervandew/supertab'               "tab autocomplete!
 Plugin 'tpope/vim-surround'              "surround things!
 Plugin 'tpope/vim-repeat'                "so . will work w plugins!
 Plugin 'tpope/vim-unimpaired'            "key bindings I'll learn one day
+Plugin 'vim-airline/vim-airline'         "Powerline :)
+Plugin 'vim-airline/vim-airline-themes'  "Themes for above: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 Plugin 'scrooloose/nerdtree'             "file navigation
 Plugin 'Xuyuanp/nerdtree-git-plugin'     "git status flags
 Plugin 'ctrlpvim/ctrlp.vim'              "fuzzy file finder
@@ -39,6 +41,9 @@ Plugin 'mxw/vim-jsx'
 Plugin 'Vimjas/vim-python-pep8-indent'
 "Plugin 'mattn/emmet-vim'                 "awesome html stuff
 call vundle#end()
+
+" vim-airline/vim-airline-themes
+let g:airline_theme='bubblegum'
 
 " Syntastic Settings
 let g:syntastic_aggregate_errors = 1
