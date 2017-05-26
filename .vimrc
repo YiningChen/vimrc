@@ -12,10 +12,14 @@ call vundle#begin()
 
 "Plugins
 Plugin 'gmarik/Vundle.vim'               "PluginInstall
-Plugin 'ervandew/supertab'               "tab autocomplete!
+Plugin 'Shougo/neocomplete.vim'          "tab autocomplete
+Plugin 'SirVer/ultisnips'                "snippets engine :)
+Plugin 'honza/vim-snippets'              "actual snippets
 Plugin 'tpope/vim-surround'              "surround things!
 Plugin 'tpope/vim-repeat'                "so . will work w plugins!
 Plugin 'tpope/vim-unimpaired'            "key bindings I'll learn one day
+Plugin 'vim-airline/vim-airline'         "Powerline :)
+Plugin 'vim-airline/vim-airline-themes'  "Themes for above: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 Plugin 'scrooloose/nerdtree'             "file navigation
 Plugin 'Xuyuanp/nerdtree-git-plugin'     "git status flags
 Plugin 'ctrlpvim/ctrlp.vim'              "fuzzy file finder
@@ -36,20 +40,31 @@ Plugin 'mirlord/vim-dust'
 Plugin 'wavded/vim-stylus'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-"Plugin 'mattn/emmet-vim'                 "awesome html stuff
+Plugin 'Vimjas/vim-python-pep8-indent'
 call vundle#end()
+
+" SirVer/ultisnips
+let g:UltiSnipsExpandTrigger="<tab>" "Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsJumpForwardTrigger="<C-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+"let g:UltiSnipsEditSplit="vertical" "If you want :UltiSnipsEdit to split your window
+
+" vim-airline/vim-airline-themes
+let g:airline_theme='bubblegum'
 
 " Syntastic Settings
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_javascript_checkers = ['jscs', 'jshint']
-"let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['standard', 'eslint']
 
 " mxw/vim-jsx
 let g:jsx_ext_required=0 "JSX highlighting in .js files
 
 " pangloss/vim-javascript
 let g:javascript_plugin_jsdoc = 1 "JSDoc syntax highlighting
+
+" heavenshell/vim-jsdoc
+let g:jsdoc_allow_input_prompt = 1 
 
 " Setting Stuff
 set nocompatible
@@ -58,12 +73,9 @@ syntax on         "syntax highlighting
 
 " Indentation
 set autoindent    "copies indentation from previous line
-set tabstop=2     "how many spaces a tab will look
+set expandtab     "indentation without tabs
 set shiftwidth=2
 set softtabstop=2
-
-" Use spaces in python files
-autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
 
 set backspace=indent,eol,start
 set showmatch     "show matching brackets
@@ -127,7 +139,7 @@ function! ToggleList(bufname, pfx)
 endfunction
 
 " Toggle Quick Command 
-command -bang -nargs=? QFix call QFixToggle(<bang>0)
+command! -bang -nargs=? QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)
   if exists("g:qfix_win") && a:forced == 0
     cclose
@@ -141,9 +153,9 @@ endfunction
 "----Graveyard----
 "map <C-t>n :tabnew<CR>
 "map <C-t>t :tabnext<CR>
+"set tabstop=2     "how many spaces a tab will look
 "set incsearch "move while searching
 "set cindent       "replaces smartindent
-"set expandtab "indentation without tabs
 "set list         "show tabs and stuff
 "set listchars=trail:. "show trailing
 "set novisualbell  "don't blink
@@ -153,3 +165,5 @@ endfunction
 "vim git-gutter
 "execute pathogen#infect()
 "set matchtime=5   "how many tenths of a second to blink matching brackets for
+"autocmd Filetype python setlocal expandtab tabstop=2 shiftwidth=2 " Use spaces in python files
+
