@@ -41,7 +41,6 @@ Plugin 'wavded/vim-stylus'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'Vimjas/vim-python-pep8-indent'
-"Plugin 'mattn/emmet-vim'                 "awesome html stuff
 call vundle#end()
 
 " SirVer/ultisnips
