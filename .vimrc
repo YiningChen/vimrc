@@ -55,8 +55,7 @@ let g:airline_theme='bubblegum'
 " Syntastic Settings
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_javascript_checkers = ['jscs', 'jshint']
-"let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['standard', 'eslint']
 
 " mxw/vim-jsx
 let g:jsx_ext_required=0 "JSX highlighting in .js files
