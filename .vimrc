@@ -73,7 +73,7 @@ syntax on         "syntax highlighting
 
 " Indentation
 set autoindent    "copies indentation from previous line
-set tabstop=2     "how many spaces a tab will look
+set expandtab     "indentation without tabs
 set shiftwidth=2
 set softtabstop=2
 
@@ -153,9 +153,9 @@ endfunction
 "----Graveyard----
 "map <C-t>n :tabnew<CR>
 "map <C-t>t :tabnext<CR>
+"set tabstop=2     "how many spaces a tab will look
 "set incsearch "move while searching
 "set cindent       "replaces smartindent
-"set expandtab "indentation without tabs
 "set list         "show tabs and stuff
 "set listchars=trail:. "show trailing
 "set novisualbell  "don't blink
