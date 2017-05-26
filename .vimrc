@@ -12,7 +12,9 @@ call vundle#begin()
 
 "Plugins
 Plugin 'gmarik/Vundle.vim'               "PluginInstall
-Plugin 'ervandew/supertab'               "tab autocomplete!
+Plugin 'Shougo/neocomplete.vim'          "tab autocomplete
+Plugin 'SirVer/ultisnips'                "snippets engine :)
+Plugin 'honza/vim-snippets'              "actual snippets
 Plugin 'tpope/vim-surround'              "surround things!
 Plugin 'tpope/vim-repeat'                "so . will work w plugins!
 Plugin 'tpope/vim-unimpaired'            "key bindings I'll learn one day
@@ -41,6 +43,12 @@ Plugin 'mxw/vim-jsx'
 Plugin 'Vimjas/vim-python-pep8-indent'
 "Plugin 'mattn/emmet-vim'                 "awesome html stuff
 call vundle#end()
+
+" SirVer/ultisnips
+let g:UltiSnipsExpandTrigger="<tab>" "Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsJumpForwardTrigger="<C-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+"let g:UltiSnipsEditSplit="vertical" "If you want :UltiSnipsEdit to split your window
 
 " vim-airline/vim-airline-themes
 let g:airline_theme='bubblegum'
