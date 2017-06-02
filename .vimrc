@@ -44,9 +44,9 @@ Plugin 'Vimjas/vim-python-pep8-indent'
 call vundle#end()
 
 " SirVer/ultisnips
-let g:UltiSnipsExpandTrigger="<tab>" "Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsJumpForwardTrigger="<C-b>"
-let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+let g:UltiSnipsExpandTrigger="<C-e>"
+let g:UltiSnipsJumpForwardTrigger="<C-w>"
+let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 "let g:UltiSnipsEditSplit="vertical" "If you want :UltiSnipsEdit to split your window
 
 " vim-airline/vim-airline-themes
@@ -55,7 +55,23 @@ let g:airline_theme='bubblegum'
 " Syntastic Settings
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_javascript_checkers = ['standard', 'eslint']
+"let g:syntastic_javascript_checkers = ['standard', 'eslint']
+let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_standard_exec = "/Users/chenyi/.nvm/versions/node/v4.2.6/bin/standard"
+"autocmd bufwritepost *.js silent !standard --fix -w %
+"set autoread
+
+" Shougo/neocomplete.vim
+let g:neocomplete#enable_at_startup = 1
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" Tab completion
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " mxw/vim-jsx
 let g:jsx_ext_required=0 "JSX highlighting in .js files
@@ -66,6 +82,9 @@ let g:javascript_plugin_jsdoc = 1 "JSDoc syntax highlighting
 " heavenshell/vim-jsdoc
 let g:jsdoc_allow_input_prompt = 1 
 
+" elzr/vim-json
+let g:vim_json_syntax_conceal = 0
+
 " Setting Stuff
 set nocompatible
 filetype plugin indent on
@@ -73,9 +92,10 @@ syntax on         "syntax highlighting
 
 " Indentation
 set autoindent    "copies indentation from previous line
-set expandtab     "indentation without tabs
-set shiftwidth=2
-set softtabstop=2
+set tabstop=2     "how many spaces a tab will look
+set shiftwidth=2  "how many spaces to indent
+set softtabstop=2 "how many spaces to delete when deleting
+set expandtab     "indentation without tabs - has to go at the very end of tab/space settings
 
 set backspace=indent,eol,start
 set showmatch     "show matching brackets
@@ -106,6 +126,9 @@ colorscheme base16-tomorrow-night
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
+
+
+
 
 " ----Functions----
 
@@ -153,7 +176,6 @@ endfunction
 "----Graveyard----
 "map <C-t>n :tabnew<CR>
 "map <C-t>t :tabnext<CR>
-"set tabstop=2     "how many spaces a tab will look
 "set incsearch "move while searching
 "set cindent       "replaces smartindent
 "set list         "show tabs and stuff
