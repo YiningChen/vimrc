@@ -12,10 +12,14 @@ call vundle#begin()
 
 "Plugins
 Plugin 'gmarik/Vundle.vim'               "PluginInstall
-Plugin 'ervandew/supertab'               "tab autocomplete!
+Plugin 'Shougo/neocomplete.vim'          "tab autocomplete
+Plugin 'SirVer/ultisnips'                "snippets engine :)
+Plugin 'honza/vim-snippets'              "actual snippets
 Plugin 'tpope/vim-surround'              "surround things!
 Plugin 'tpope/vim-repeat'                "so . will work w plugins!
 Plugin 'tpope/vim-unimpaired'            "key bindings I'll learn one day
+Plugin 'vim-airline/vim-airline'         "Powerline :)
+Plugin 'vim-airline/vim-airline-themes'  "Themes for above: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 Plugin 'scrooloose/nerdtree'             "file navigation
 Plugin 'Xuyuanp/nerdtree-git-plugin'     "git status flags
 Plugin 'ctrlpvim/ctrlp.vim'              "fuzzy file finder
@@ -36,20 +40,53 @@ Plugin 'mirlord/vim-dust'
 Plugin 'wavded/vim-stylus'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-"Plugin 'mattn/emmet-vim'                 "awesome html stuff
+Plugin 'Vimjas/vim-python-pep8-indent'
 call vundle#end()
+
+" ctrlpvim/ctrlp.vim
+set wildignore+=*/.git/*,*/node_modules/*
+
+" SirVer/ultisnips
+let g:UltiSnipsExpandTrigger="<C-e>"
+let g:UltiSnipsJumpForwardTrigger="<C-w>"
+let g:UltiSnipsJumpBackwardTrigger="<C-b>"
+"let g:UltiSnipsEditSplit="vertical" "If you want :UltiSnipsEdit to split your window
+
+" vim-airline/vim-airline-themes
+let g:airline_theme='bubblegum'
 
 " Syntastic Settings
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_javascript_checkers = ['jscs', 'jshint']
-"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_checkers = ['standard', 'eslint']
+let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_standard_exec = "/Users/chenyi/.nvm/versions/node/v4.2.6/bin/standard"
+"autocmd bufwritepost *.js silent !standard --fix -w %
+"set autoread
+
+" Shougo/neocomplete.vim
+let g:neocomplete#enable_at_startup = 1
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" Tab completion
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " mxw/vim-jsx
 let g:jsx_ext_required=0 "JSX highlighting in .js files
 
 " pangloss/vim-javascript
 let g:javascript_plugin_jsdoc = 1 "JSDoc syntax highlighting
+
+" heavenshell/vim-jsdoc
+let g:jsdoc_allow_input_prompt = 1 
+
+" elzr/vim-json
+let g:vim_json_syntax_conceal = 0
 
 " Setting Stuff
 set nocompatible
@@ -59,11 +96,9 @@ syntax on         "syntax highlighting
 " Indentation
 set autoindent    "copies indentation from previous line
 set tabstop=2     "how many spaces a tab will look
-set shiftwidth=2
-set softtabstop=2
-
-" Use spaces in python files
-autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4
+set shiftwidth=2  "how many spaces to indent
+set softtabstop=2 "how many spaces to delete when deleting
+set expandtab     "indentation without tabs - has to go at the very end of tab/space settings
 
 set backspace=indent,eol,start
 set showmatch     "show matching brackets
@@ -94,6 +129,9 @@ colorscheme base16-tomorrow-night
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
+
+
+
 
 " ----Functions----
 
@@ -127,7 +165,7 @@ function! ToggleList(bufname, pfx)
 endfunction
 
 " Toggle Quick Command 
-command -bang -nargs=? QFix call QFixToggle(<bang>0)
+command! -bang -nargs=? QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)
   if exists("g:qfix_win") && a:forced == 0
     cclose
@@ -143,7 +181,6 @@ endfunction
 "map <C-t>t :tabnext<CR>
 "set incsearch "move while searching
 "set cindent       "replaces smartindent
-"set expandtab "indentation without tabs
 "set list         "show tabs and stuff
 "set listchars=trail:. "show trailing
 "set novisualbell  "don't blink
@@ -153,3 +190,5 @@ endfunction
 "vim git-gutter
 "execute pathogen#infect()
 "set matchtime=5   "how many tenths of a second to blink matching brackets for
+"autocmd Filetype python setlocal expandtab tabstop=2 shiftwidth=2 " Use spaces in python files
+
