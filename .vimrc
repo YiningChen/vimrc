@@ -43,6 +43,9 @@ Plugin 'mxw/vim-jsx'
 Plugin 'Vimjas/vim-python-pep8-indent'
 call vundle#end()
 
+" ctrlpvim/ctrlp.vim
+set wildignore+=*/.git/*,*/node_modules/*
+
 " SirVer/ultisnips
 let g:UltiSnipsExpandTrigger="<C-e>"
 let g:UltiSnipsJumpForwardTrigger="<C-w>"
