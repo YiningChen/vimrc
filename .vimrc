@@ -58,8 +58,8 @@ let g:airline_theme='bubblegum'
 " Syntastic Settings
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_python_checkers = ['flake8']
-"let g:syntastic_javascript_checkers = ['standard', 'eslint']
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['standard', 'eslint']
+"let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_javascript_standard_exec = "/Users/chenyi/.nvm/versions/node/v4.2.6/bin/standard"
 "autocmd bufwritepost *.js silent !standard --fix -w %
 "set autoread
