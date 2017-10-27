@@ -1,0 +1,25 @@
+snippet fun "function"
+function ${1:function_name} ($2) {
+	$3
+}
+endsnippet
+	
+snippet expfun "export function"
+export function ${1:function_name} ($2) {
+	$3
+}
+endsnippet
+
+snippet expconst "export const"
+export const $1 = $2
+endsnippet
+	
+# REACT:
+snippet constructor "react component constructor"
+constructor (props) {
+	super(props)
+	this.state = {
+		$1
+	}
+}
+endsnippet
