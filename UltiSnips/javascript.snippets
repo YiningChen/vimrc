@@ -3,6 +3,10 @@ function ${1:function_name} ($2) {
 	$3
 }
 endsnippet
+
+snippet _ "require lodash"
+const _ = require('lodash')
+endsnippet
 	
 snippet expfun "export function"
 export function ${1:function_name} ($2) {
@@ -23,3 +27,18 @@ constructor (props) {
 	}
 }
 endsnippet
+
+# PREACT:
+snippet preact "preact component"
+import { h, Component } from 'preact' // eslint-disable-line
+
+export default class $1 extends Component {
+  render () {
+    return (
+      <div>
+      </div>
+    )
+  }
+}
+endsnippet
+

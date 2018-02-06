@@ -28,6 +28,8 @@ Plugin 'MartinLafreniere/vim-PairTools'
 Plugin 'editorconfig/editorconfig-vim'   "editor config
 Plugin 'tpope/vim-sensible'              "use whatever tab style is in the file :)
 Plugin 'scrooloose/syntastic'            "linters: SyntasticInfo, SyntasticCheck
+Plugin 'leafgarland/typescript-vim'
+Plugin 'm-kat/aws-vim'
 "Plugin 'jiangmiao/auto-pairs'
 "Plugin 'Chiel92/vim-autoformat'          "Autoformat
 "Plugin 'dbarsam/vim-rainbow-parentheses' "color matching parentheses!
@@ -107,7 +109,7 @@ set number        "Display line numbers
 set numberwidth=5 "We are good up to 99999 lines
 set sidescrolloff=10 "Keep 5 lines at the size
 set linespace=0  "don't insert any extra pixel lines betweens rows
-set scrolloff=5  "Keep 10 lines (top/bottom) for scope
+set scrolloff=0  "Keep 10 lines (top/bottom) for scope
 
 set showcmd       "show the command being typed
 set ruler         "Always show current positions along the bottom
